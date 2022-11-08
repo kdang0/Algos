@@ -64,6 +64,12 @@ console.log(findObjects(searchCriteria1, items))
  * - Time: O(?).
  * - Space: O(?).
  */
-function findObjectsFunctional(criteria, collection) { }
+ function findObjectsFunctional(criteria, collection) {
+    const entries = Object.entries(criteria)
+    return collection.filter(e => entries.every(([k,v]) => e[k] === v))
+}
+
+console.log(findObjectsFunctional(searchCriteria1, items))
+console.log(findObjectsFunctional(searchCriteria2, items))
 
 /*****************************************************************************/
